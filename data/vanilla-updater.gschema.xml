@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="vanilla-updater">
+	<schema id="vanilla-updater" path="/org/vanillaos/VanillaUpdater/">
+	</schema>
+</schemalist>

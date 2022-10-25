@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=vanilla-updater
+Exec=vanilla-updater
+Icon=vanilla-updater
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

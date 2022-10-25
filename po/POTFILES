@@ -1,0 +1,6 @@
+data/vanilla-updater.desktop.in
+data/vanilla-updater.appdata.xml.in
+data/vanilla-updater.gschema.xml
+src/main.py
+src/window.py
+src/window.ui
