@@ -25,6 +25,14 @@ configure_file(
   install_dir: get_option('bindir')
 )
 
+configure_file(
+  output: 'vanilla-updater-cli',
+  input: 'vanilla-updater-cli.in',
+  configuration: conf,
+  install: true,
+  install_dir: get_option('bindir')
+)
+
 subdir('core')
 subdir('utils')
 
