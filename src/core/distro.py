@@ -38,8 +38,6 @@ class Distro:
         self.__parse_os_release()
 
     def __parse_os_release(self):
-        logger.info('Parsing /etc/os-release...')
-
         os_release = open('/etc/os-release', 'r')
 
         for line in os_release:
@@ -59,8 +57,6 @@ class Distro:
                 self.__version_codename = line[17:].strip().replace('"', '')
 
         os_release.close()
-
-        logger.info('Result: %s', self.dict)
     
     @property
     def dict(self):
