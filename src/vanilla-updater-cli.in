@@ -1,0 +1,81 @@
+#!@PYTHON@
+
+# vanilla-updater-cli.in
+#
+# Copyright 2022 mirkobrombin
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundationat version 3 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import os
+import sys
+import signal
+import locale
+import gettext
+import argparse
+import logging
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("VanillaUpdater::CLI")
+
+
+VERSION = '@VERSION@'
+pkgdatadir = '@pkgdatadir@'
+
+sys.path.insert(1, pkgdatadir)
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+
+
+if __name__ == '__main__':
+    from vanilla_updater.core.updates_repository import UpdatesRepository
+    from vanilla_updater.core.distro import Distro
+    from vanilla_updater.core.prepare import UpdatePreparer
+    
+    # add options:
+    # update
+    # check
+
+    distro = Distro()
+    updates_repo = UpdatesRepository()
+
+    parser = argparse.ArgumentParser(description='Vanilla Updater')
+    parser.add_argument('--version', action='version', version=VERSION)
+    parser.add_argument('--check', action='store_true', help='Check for new releases')
+    parser.add_argument('--upgrade', action='store_true', help='Upgrade to the latest release')
+    args = parser.parse_args()
+
+    if args.check:
+        print('Checking for new releases...')
+        update = updates_repo.get_next_update(distro.version)
+
+        if update:
+            print('New release available: {}'.format(update.version))
+            sys.exit(0)
+
+        print('No new release available')
+        sys.exit(1)
+
+    if args.upgrade:
+        update = updates_repo.get_next_update(distro.version)
+
+        if not update:
+            logging.info('No new release available')
+            sys.exit(1)
+
+        preparer = UpdatePreparer(update)
+        if not preparer.run(update):
+            logging.error('Failed to prepare the update')
+            sys.exit(1)
+
+        logging.info('All updates downloaded and prepared. Reboot or shutdown to apply them.')
+        sys.exit(0)
