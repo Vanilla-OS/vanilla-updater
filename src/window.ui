@@ -62,7 +62,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkButton" id="button_update">
+                              <object class="GtkButton" id="button_upgrade">
                                 <property name="label" translatable="true">Upgrade Now</property>
                                 <property name="halign">center</property>
                                 <style>
@@ -86,6 +86,46 @@
                         <property name="icon-name">distributor-logo-vanilla</property>
                         <property name="title" translatable="true">Already Up-to-Date</property>
                         <property name="description" translatable="true">You are already running the latest release.</property>
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwViewStackPage">
+                    <property name="name">done</property>
+                    <property name="child">
+                      <object class="AdwStatusPage">
+                        <property name="icon-name">object-select-symbolic</property>
+                        <property name="title" translatable="true">Restart Required</property>
+                        <property name="description" translatable="true">Please restart your computer to complete the upgrade.</property>
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                        <child>
+                          <object class="GtkButton" id="button_reboot">
+                            <property name="label" translatable="true">Reboot</property>
+                            <property name="halign">center</property>
+                            <style>
+                              <class name="suggested-action" />
+                              <class name="pill" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwViewStackPage">
+                    <property name="name">failed</property>
+                    <property name="child">
+                      <object class="AdwStatusPage">
+                        <property name="icon-name">dialog-error-symbolic</property>
+                        <property name="title" translatable="true">Something Went Wrong</property>
+                        <property name="description" translatable="true">We were unable to check for a new release, try again later.</property>
                         <property name="vexpand">True</property>
                         <property name="hexpand">True</property>
                       </object>
