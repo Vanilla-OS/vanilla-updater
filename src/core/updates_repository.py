@@ -21,7 +21,7 @@ import json
 import requests
 import logging
 
-UPDATES_URL = 'https://raw.githubusercontent.com/Vanilla-OS/info/main/updates.json'
+UPDATES_URL = 'https://info.vanillaos.org/updates.json'
 
 logger = logging.getLogger("VanillaUpdater::UpdatesRepository")
 
@@ -55,8 +55,6 @@ class UpdatesRepository:
             for version in data:
                 updates.append(Update(version, data[version]['codename']))
         
-        logger.info('Updates: %s', updates)
-
         return updates
     
     def get_next_update(self, version):
@@ -68,7 +66,6 @@ class UpdatesRepository:
                 return update
         
         logger.info('No updates found')
-
         return None
 
     @property
