@@ -13,7 +13,7 @@ if desktop_utils.found()
 endif
 
 install_data(
-  'vanilla-updater.desktop',
+  'vanilla-updater-autostart.desktop',
   install_dir: join_paths(get_option('sysconfdir'), 'xdg', 'autostart')
 )
 
