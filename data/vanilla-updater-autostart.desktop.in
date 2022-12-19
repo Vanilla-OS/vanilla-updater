@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Updater
+Exec=vanilla-updater-cli --check && vanilla-updater
+Terminal=false
+Type=Application
+X-GNOME-Autostart-Notify=false
+X-GNOME-AutoRestart=true
+X-GNOME-Autostart-enabled=true
