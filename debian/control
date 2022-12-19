@@ -1,0 +1,27 @@
+Source: vanilla-updater
+Section: utils
+Priority: optional
+Maintainer: Mirko Brombin <send@mirko.pm>
+Build-Depends: 
+            build-essential,
+            debhelper,
+            python3,
+            meson,
+            libadwaita-1-dev,
+            gettext,
+            make,
+            desktop-file-utils
+Homepage: https://github.com/vanilla-os/vanilla-updater/
+Vcs-Browser: hhttps://github.com/vanilla-os/vanilla-updater
+Vcs-Git: https://github.com/vanilla-os/vanilla-updater.git
+Rules-Requires-Root: no
+
+Package: vanilla-updater
+Architecture: any
+Depends: python3,
+         python3-gi,
+         libadwaita-1-0,
+         gir1.2-gtk-4.0,
+         gir1.2-adw-1,
+         abroot
+Description: Vanilla OS Updater is a simple graphical application to update the system to a new major version.

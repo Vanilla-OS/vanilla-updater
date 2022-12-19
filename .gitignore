@@ -1,1 +1,5 @@
 /mesonbuild
+/obj-x86_64-linux-gnu
+/debian/vanilla-updater
+/debian/vanilla-updater.debhelper.log
+/debian/vanilla-updater.substvars

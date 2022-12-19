@@ -43,7 +43,7 @@
                     <property name="name">found</property>
                     <property name="child">
                       <object class="AdwStatusPage">
-                        <property name="icon-name">distributor-logo-vanilla</property>
+                        <property name="icon-name">vanilla-update-distrologo</property>
                         <property name="title" translatable="true">Vanilla OS 22.10 Kinetic</property>
                         <property name="description" translatable="true">A new release is available.</property>
                         <property name="vexpand">True</property>
@@ -83,7 +83,7 @@
                     <property name="name">updated</property>
                     <property name="child">
                       <object class="AdwStatusPage">
-                        <property name="icon-name">distributor-logo-vanilla</property>
+                        <property name="icon-name">vanilla-update-distrologo</property>
                         <property name="title" translatable="true">Already Up-to-Date</property>
                         <property name="description" translatable="true">You are already running the latest release.</property>
                         <property name="vexpand">True</property>

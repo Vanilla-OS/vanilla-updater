@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Vanilla OS Updater
+Name=Updater
 Exec=vanilla-updater
 Icon=vanilla-updater
 Terminal=false
