@@ -5,7 +5,7 @@ sources = [
   '__init__.py',
   'distro.py',
   'updates_repository.py',
-  'prepare.py',
+  'processor.py',
 ]
 
 install_data(sources, install_dir: coredir)

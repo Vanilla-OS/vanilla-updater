@@ -39,11 +39,7 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 if __name__ == '__main__':
     from vanilla_updater.core.updates_repository import UpdatesRepository
     from vanilla_updater.core.distro import Distro
-    from vanilla_updater.core.prepare import UpdatePreparer
-    
-    # add options:
-    # update
-    # check
+    from vanilla_updater.core.processor import UpdateProcessor
 
     distro = Distro()
     updates_repo = UpdatesRepository()
@@ -72,7 +68,7 @@ if __name__ == '__main__':
             logging.info('No new release available')
             sys.exit(1)
 
-        preparer = UpdatePreparer(update)
+        preparer = UpdateProcessor(update)
         if not preparer.run(update):
             logging.error('Failed to prepare the update')
             sys.exit(1)
